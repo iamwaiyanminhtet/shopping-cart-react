@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import { Outlet, useLocation, useParams } from 'react-router-dom';
+import AllProducts from './components/AllProducts';
+import Cart from './components/Cart';
+import HeroSection from './components/HeroSection';
 
 
 function App() {
+
+  const {section} = useParams();
 
   // dark mode toggle
   let darkTheme = localStorage.getItem('darkTheme');
@@ -42,9 +47,6 @@ function App() {
   },[]);
   // fetch data
 
-  console.log(`outside`, allProducts)
-  console.log(`outside`, loading)
-
   return (
     <div className={`${darkMode ? 'dark' : ''}`}>
       <div className='bg-white dark:bg-neutral-800 min-h-screen'>
@@ -56,7 +58,7 @@ function App() {
         />
 
         <main>
-          <Outlet/>
+          <Outlet context={[loading, allProducts]}/>
         </main>
       </div>
     </div>
