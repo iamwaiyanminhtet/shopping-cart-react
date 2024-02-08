@@ -1,24 +1,20 @@
-# Resume Builder
-
-Experience the ability to dynamically generate and preview your resume as you fill in the necessary details.
-
-- built using [ReactJs](https://react.dev/) for the first time
-- Vanilla JavaScript Version for this [Resume Builder](https://github.com/iamwaiyanminhtet/resume-builder-vanilla-js)
+# Shopping Cart
+just a shopping cart :3
+- built using [Tailwind](https://tailwindcss.com/), and love it :)
+- light/dark mode
 
 ## Screenshots
 
-![Demo 1](src/assets/screenshot-1.png)
-![Demo 2](src/assets/screenshot-2.png)
-![Demo 3](src/assets/screenshot-3.png)
+![Demo 1](src/assets/screenshots/screenshot-1.png)
+![Demo 2](src/assets/screenshots/screenshot-2.png)
+![Demo 3](src/assets/screenshots/screenshot-3.png)
 
 ## Demo
-[Resume Builder](https://iamwaiyanminhtet-resume-builder.netlify.app/)
+[Shopping Cart Demo](https://iamwaiyanminhtet-shopping-cart.netlify.app/)
 
 ## Lessons Learned
-- JSX basic syntax
-- React component
-- `setSmth()` which is returned from the `useState()` trigger component re-rendering.
-
+- mainly react-router-dom
+- become familiar with some of tailwind utility classes
 ## Tech Stack
 
-HTML | CSS | JavaScript | React
+HTML | CSS | Tailwind | React 
