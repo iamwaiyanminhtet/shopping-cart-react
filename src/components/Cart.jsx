@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom"
 
 const Cart = () => {
-  const [,,, cart] = useOutletContext();
+  const [ ,, cart] = useOutletContext();
 
   let subtotal = 0;
   let shippingFee = 10;

@@ -1,15 +1,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
-import { Outlet, useLocation, useParams } from 'react-router-dom';
-import AllProducts from './components/AllProducts';
-import Cart from './components/Cart';
-import HeroSection from './components/HeroSection';
-
+import { Outlet, useLocation } from 'react-router-dom';
 
 function App() {
-
-  const {section} = useParams();
 
   // dark mode toggle
   let darkTheme = localStorage.getItem('darkTheme');
@@ -26,8 +20,6 @@ function App() {
 
   // fetch data
   const [allProducts, setAllProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   useEffect(() => {
     // fetch data
     async function getProducts() {
@@ -39,10 +31,8 @@ function App() {
   // try catch
    try {
     getProducts()
-   } catch (error) {
-    setError(error)
-   } finally {
-    setLoading(false);
+   }catch (error) {
+    console.log(error)
    }
   },[]);
   // fetch data
@@ -72,7 +62,7 @@ function App() {
         />
 
         <main>
-          <Outlet context={[loading, allProducts, addToCart, cart]}/>
+          <Outlet context={[allProducts, addToCart, cart]}/>
         </main>
       </div>
     </div>
