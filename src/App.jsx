@@ -47,6 +47,20 @@ function App() {
   },[]);
   // fetch data
 
+  // cart state
+  const [cart, setCart] = useState([]);
+
+  function addToCart(productId,qty) {
+    const product = allProducts.filter(product => product.id === productId);
+    let cartProducts = [...cart];
+    cartProducts.push({
+      qty : qty,
+      product : product[0]
+    })
+    setCart(cartProducts)
+  }
+  // cart state
+
   return (
     <div className={`${darkMode ? 'dark' : ''}`}>
       <div className='bg-white dark:bg-neutral-800 min-h-screen'>
@@ -58,7 +72,7 @@ function App() {
         />
 
         <main>
-          <Outlet context={[loading, allProducts]}/>
+          <Outlet context={[loading, allProducts, addToCart, cart]}/>
         </main>
       </div>
     </div>

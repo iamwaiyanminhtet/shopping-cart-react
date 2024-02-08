@@ -1,8 +1,24 @@
-# React + Vite
+# Resume Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Experience the ability to dynamically generate and preview your resume as you fill in the necessary details.
 
-Currently, two official plugins are available:
+- built using [ReactJs](https://react.dev/) for the first time
+- Vanilla JavaScript Version for this [Resume Builder](https://github.com/iamwaiyanminhtet/resume-builder-vanilla-js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Screenshots
+
+![Demo 1](src/assets/screenshot-1.png)
+![Demo 2](src/assets/screenshot-2.png)
+![Demo 3](src/assets/screenshot-3.png)
+
+## Demo
+[Resume Builder](https://iamwaiyanminhtet-resume-builder.netlify.app/)
+
+## Lessons Learned
+- JSX basic syntax
+- React component
+- `setSmth()` which is returned from the `useState()` trigger component re-rendering.
+
+## Tech Stack
+
+HTML | CSS | JavaScript | React

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-const Product = ({product}) => {
+const Product = ({product, addToCart}) => {
 
   let [counter, setCounter] = useState(0);
 
@@ -18,7 +18,7 @@ const Product = ({product}) => {
             <span className="text-black dark:text-slate-100 ">{counter}</span>
             <button className="bg-black text-slate-100 dark:bg-white dark:text-black px-2 rounded-md font-bold hover:opacity-80 active:opacity-100" onClick={() => setCounter(prev => ++prev)}>+</button>
             
-            <button  className="bg-teal-500 rounded-md hover:opacity-80 active:opacity-100 px-2">Cart</button>
+            <button  className="bg-teal-500 rounded-md hover:opacity-80 active:opacity-100 px-2" onClick={() => addToCart(product.id, counter)}>Cart</button>
           </div>
         </div>
     </div>
