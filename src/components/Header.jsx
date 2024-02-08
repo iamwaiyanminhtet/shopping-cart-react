@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
-
+import LightIcon from "../assets/light-mode.svg"
+import DarkIcon from "../assets/dark-mode.svg"
 const Header = ({darkMode, setDarkMode, currentUrl}) => {
   return (
     <header className=' flex justify-center sticky top-0 p-2'>
@@ -17,7 +18,7 @@ const Header = ({darkMode, setDarkMode, currentUrl}) => {
                 </li>
                 <li className=''>
                     <button className='w-10 h-10 bg-slate-100 text-black dark:bg-black dark:text-slate-100 p-2 rounded-full' onClick={setDarkMode}>
-                        {darkMode ? 'L' : 'D'}
+                        <img src={darkMode ? LightIcon : DarkIcon} alt="" className="dark:text-slate-100"/>
                     </button>
                 </li>
             </ul>
