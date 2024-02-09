@@ -6,7 +6,9 @@ import { Outlet, useLocation } from 'react-router-dom';
 const AppContext = createContext({
   allProducts : [],
   cart : [],
-  addToCart : () => {}
+  addToCart : () => {},
+  addedToCart : false,
+  setAddedToCart : () => {}
 })
 
 
@@ -46,16 +48,25 @@ function App() {
 
   // cart state
   const [cart, setCart] = useState([]);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   function addToCart(productId,qty) {
+    if(qty === 0) {
+      return;
+    }
     const product = allProducts.filter(product => product.id === productId);
-    let cartProducts = [...cart];
-    cartProducts.push({
-      qty : qty,
-      product : product[0]
-    })
-    setCart(cartProducts)
+      let cartProducts = [...cart];
+      cartProducts.push({
+          qty : qty,
+          product : product[0]
+      })
+      setCart(cartProducts);
+      setAddedToCart(true);
+      setTimeout(() => {
+        setAddedToCart(false);
+      }, 6000);
   }
+  // addedToCartNotification remove
   // cart state
 
   return (
@@ -66,10 +77,11 @@ function App() {
           darkMode={darkMode} 
           setDarkMode={toggleDarkMode} 
           currentUrl={currentUrl.pathname}
+          cart={cart}
         />
 
         <main>
-          <AppContext.Provider value={{allProducts, cart, addToCart}}>
+          <AppContext.Provider value={{allProducts, cart, addToCart, addedToCart, setAddedToCart}}>
             <Outlet/>
           </AppContext.Provider>
         </main>
