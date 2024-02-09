@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom"
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 const Cart = () => {
-  const [ ,, cart] = useOutletContext();
 
+  const { cart } = useContext(AppContext);
   let subtotal = 0;
   let shippingFee = 10;
   if(cart.length > 0) {

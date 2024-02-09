@@ -12,7 +12,7 @@ const Product = ({product, addToCart}) => {
         </div>
         <div className="p-2 flex flex-col gap-1">
           <h2 className="text-black dark:text-slate-100 text-xl text-center text-wrap overflow-hidden">{product.title}</h2>
-          <p className="text-black/85 dark:text-slate-500 text-sm text-center">$ {Math.round(product.price)}</p>
+          <p className="text-black/85 dark:text-slate-500 text-sm text-center">$ {Math.ceil(product.price)}</p>
           <div className="flex justify-between m-1">
             <button className="bg-black text-slate-100 dark:bg-white dark:text-black px-2 rounded-md font-bold hover:opacity-80 active:opacity-100" onClick={() => setCounter(prev => prev > 0 ? --prev : 0)}>-</button> 
             <span className="text-black dark:text-slate-100 ">{counter}</span>

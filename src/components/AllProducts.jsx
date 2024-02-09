@@ -1,12 +1,11 @@
-import { useOutletContext } from "react-router-dom"
+import { AppContext } from "../App";
 import Product from "./Product"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 
 const AllProducts = () => {
-  
-  const [ products, addToCart] = useOutletContext();
-  const [displayProducts, setDisplayProducts] = useState(products || [])
+  const {allProducts, addToCart} = useContext(AppContext);
+  const [displayProducts, setDisplayProducts] = useState(allProducts || [])
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -30,7 +29,7 @@ const AllProducts = () => {
 
   // get all categories
   let categories = [];
-  products.forEach(product => {
+  allProducts.forEach(product => {
     if (!categories.includes(product.category)) {
       categories.push(product.category);
     }
@@ -39,10 +38,10 @@ const AllProducts = () => {
   // filter products by category
   function filterByCategory(category) {
     if(category === 'all') {
-      setDisplayProducts(products);
+      setDisplayProducts(allProducts);
       return;
     }
-    let filterProducts = [...products];
+    let filterProducts = [...allProducts];
     let filteredProducts = filterProducts.filter(product => product.category === category)
     setDisplayProducts(filteredProducts);
   }
@@ -51,10 +50,10 @@ const AllProducts = () => {
   function searchWithName(value) {
     let modifiedValue = value.trim().toLowerCase();
     if(value === '') {
-      setDisplayProducts(products);
+      setDisplayProducts(allProducts);
       return;
     }
-    let searchProducts = [...products];
+    let searchProducts = [...allProducts];
     let searchedProducts = searchProducts.filter(product => product.title.toLowerCase().startsWith(modifiedValue) || product.title.includes(modifiedValue))
     setDisplayProducts(searchedProducts);
   }
@@ -63,7 +62,7 @@ const AllProducts = () => {
     <section style={{minHeight : 'calc(100vh - 88px)'}} className="p-5">
       {loading && <div>Loading.....</div>}
       {error && <div>{error.message}</div>}
-      {products.length > 0 && 
+      {allProducts.length > 0 && 
        <div>
         <div className="flex items-center flex-col md:flex-row gap-2 lg:flex-row">
           <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 mx-5 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" onChange={(e) => filterByCategory(e.target.value)}>

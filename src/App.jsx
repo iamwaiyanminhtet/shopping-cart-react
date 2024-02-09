@@ -1,7 +1,14 @@
-import { useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import { Outlet, useLocation } from 'react-router-dom';
+
+const AppContext = createContext({
+  allProducts : [],
+  cart : [],
+  addToCart : () => {}
+})
+
 
 function App() {
 
@@ -62,7 +69,9 @@ function App() {
         />
 
         <main>
-          <Outlet context={[allProducts, addToCart, cart]}/>
+          <AppContext.Provider value={{allProducts, cart, addToCart}}>
+            <Outlet/>
+          </AppContext.Provider>
         </main>
       </div>
     </div>
@@ -70,3 +79,4 @@ function App() {
 }
 
 export default App;
+export { AppContext };
