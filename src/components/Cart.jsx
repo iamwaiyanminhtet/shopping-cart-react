@@ -1,14 +1,18 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { AppContext } from "../App";
 
 const Cart = () => {
 
   const { cart } = useContext(AppContext);
-  let subtotal = 0;
-  let shippingFee = 10;
-  if(cart.length > 0) {
-    subtotal = cart.map(item => Math.ceil(item.qty * item.product.price)).reduce((prev, cur) => prev + cur)
-  }
+  
+  const subtotal = useMemo(() => {
+      if(cart.length === 0) return 0;
+
+      return cart.map(item => Math.ceil(item.qty * item.product.price)).reduce((prev, cur) => prev + cur);
+  }, [cart])
+
+  const shippingFee = 10;
+
   return (
     <div className="p-5 m-5 text-black dark:text-slate-100 bg-white dark:bg-neutral-800 grid grid-cols-1 lg:grid-cols-3 gap-3 justify-items-center">
       <div className="col-span-2 overflow-x-auto max-w-full">
