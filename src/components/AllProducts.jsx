@@ -98,7 +98,8 @@ const AllProducts = () => {
         </div>}
         <div className="my-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center justify-items-center gap-5">
           {
-            displayProducts.map(product => <Product key={product.id} product={product} addToCart={addToCart}/>)
+            displayProducts.map(product => <Product key={product.id} product={product} addToCart={addToCart}/>
+         )
           }
         </div>
        </div>

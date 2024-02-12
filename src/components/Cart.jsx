@@ -12,7 +12,6 @@ const Cart = () => {
   }, [cart])
 
   const shippingFee = 10;
-
   return (
     <div className="p-5 m-5 text-black dark:text-slate-100 bg-white dark:bg-neutral-800 grid grid-cols-1 lg:grid-cols-3 gap-3 justify-items-center">
       <div className="col-span-2 overflow-x-auto max-w-full">

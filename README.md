@@ -8,6 +8,7 @@ just a shopping cart :3
 ![Demo 1](src/assets/screenshots/screenshot-1.png)
 ![Demo 2](src/assets/screenshots/screenshot-2.png)
 ![Demo 3](src/assets/screenshots/screenshot-3.png)
+![Demo 4](src/assets/screenshots/screenshot-4.png)
 
 ## Demo
 [Shopping Cart Demo](https://iamwaiyanminhtet-shopping-cart.netlify.app/)

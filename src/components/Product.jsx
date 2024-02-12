@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CartIcon from "../assets/cart.svg"
+import { Link } from "react-router-dom";
 
 const Product = ({product, addToCart}) => {
 
@@ -8,7 +9,9 @@ const Product = ({product, addToCart}) => {
   return (
     <div className="w-48 rounded-lg border-4 border-teal-600 bg-slate-100 dark:bg-neutral-800">
         <div> 
-          <img src={product.image} className="w-full rounded-lg max-h-46 border-b-2 border-black" alt="" />
+          <Link to={`/products/${product.id}`}>
+            <img src={product.image} className="w-full rounded-lg max-h-46 border-b-2 border-black" alt="" />
+          </Link>
         </div>
         <div className="p-2 flex flex-col gap-1">
           <h2 className="text-black dark:text-slate-100 text-xl text-center text-wrap overflow-hidden">{product.title}</h2>
