@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import AllProducts from "./components/AllProducts";
 import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
+import ErrorPage from "./components/ErrorPage";
 
 const Router = () => {
 
@@ -16,7 +17,8 @@ const Router = () => {
         { path : 'shop', element : <AllProducts/> },
         { path : 'cart', element : <Cart/> },
         { path : 'products/:id', element : <ProductDetails/> }
-      ]
+      ],
+      errorElement : <ErrorPage/>
     },
   ]);
 
